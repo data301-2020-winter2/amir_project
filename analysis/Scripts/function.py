@@ -11,5 +11,6 @@ def load_process(path):
            .dropna()
            .rename(columns={'PTS':'Points','Pos':'Position'})
            )
+    data['Birthdate'] = pd.to_datetime(data['Birthdate']).dt.year
     data.to_csv('../data/processed/data.csv')
     return data
